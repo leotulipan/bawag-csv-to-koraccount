@@ -45,7 +45,7 @@ Variable Length
 
 Booking date DD.MM.YYYY
 
-### Date 1 
+### Date 2
 
 Value date DD.MM.YYYY
 
