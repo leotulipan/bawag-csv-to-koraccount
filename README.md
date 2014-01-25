@@ -9,7 +9,9 @@ Converting for manual import into korAccount Freeware Software ( http://korneliu
 
 ## Input Format 
 
-The CSV has the following format.
+The CSV has the following format:
+
+ANSI encoding (ruby might default to UTF8?)
 
 Field Separator: ;
 

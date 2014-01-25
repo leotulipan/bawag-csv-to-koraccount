@@ -1,16 +1,18 @@
-# Ruby 1.9.3
+#!ruby19
+# encoding: utf-8
 require 'csv'
 #http://ruby-doc.org/stdlib-1.9.3/libdoc/csv/rdoc/CSV.html
 require 'date'
 #http://ruby-doc.org/stdlib-1.9.3/libdoc/date/rdoc/Date.html
 
 basefile = 'file'
-bank_input = CSV.read("#{basefile}.csv", {:col_sep=>";"})
+bank_input = CSV.read("#{basefile}.csv", {:col_sep=>";", :headers=>false, :encoding=>"ISO-8859-1:UTF-8"})
 
 # Read CSV
 # Convert Date
 # Output Zweck;Datum;Betrag
 
+#row = bank_input.first
 bank_input.each do |row|
   # print "-" + row[3] +"-\n"
    date = Date.strptime(row[3], '%d.%m.%Y')
