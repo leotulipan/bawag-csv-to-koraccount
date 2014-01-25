@@ -7,7 +7,7 @@ Files downloaded from https://ebanking.bawagpsk.com/InternetBanking/bawag.html
 
 Converting for manual import into korAccount Freeware Software ( http://kornelius.org/koraccount/ )
 
-## Input Format ##
+## Input Format 
 
 The CSV has the following format.
 
@@ -15,24 +15,24 @@ Field Separator: ;
 
 Acct#;Description;Date 1;Date 2;Value;Currency
 
-### Acct# ###
+### Acct# 
 
 This is the Austrian Bank Acct Number
 Probably always without leading Zeros (if you can confirm this, open an issue on github please)
 11 digits
 
-### Description ###
+### Description 
 
 Variable Length
 - First 45 Characters are fixed 
--- "Bezahlung Maestro              13.57         "
--- "Auszahlung Maestro             09.13         " 
--- "Abbuchung Einzugsermächtigung                "
--- "Abbuchung Onlinebanking                      "
--- "YOUR TXT FIELD ON MANUAL ONLINE TRANSFER     "  
--- "Abbuchung Lastschrift                        "
--- "Gutschrift Überweisung                       "
--- EXCEPTION this line is complete: "BG/000001438 Entgelt für Kontoführung    " no leading 45chars
+	"Bezahlung Maestro              13.57         "
+	"Auszahlung Maestro             09.13         " 
+	"Abbuchung Einzugsermächtigung                "
+	"Abbuchung Onlinebanking                      "
+	"YOUR TXT FIELD ON MANUAL ONLINE TRANSFER     "  
+	"Abbuchung Lastschrift                        "
+	"Gutschrift Überweisung                       "
+	EXCEPTION this line is complete: "BG/000001438 Entgelt für Kontoführung    " no leading 45chars
 - Next 12 Charactes: 2 Letters Banking Code + running number
 -- MC/000001463
 -- VD/000001462     
@@ -41,15 +41,15 @@ Variable Length
 \ Replace Line Breaks(\n\r)
 
 
-### Date 1 ###
+### Date 1 
 
-Booking Date DD.MM.YYYY
+Booking date DD.MM.YYYY
 
-### Date 1 ###
+### Date 1 
 
-Value Date DD.MM.YYYY
+Value date DD.MM.YYYY
 
-### Value ###
+### Value 
 
 Value formatted:
 
@@ -59,10 +59,31 @@ Value formatted:
 -- Dot "." as a thousands separator
 -- comma "," as decimal separator
 
-### Currency ###
+### Currency 
 
 EUR
 
-Three Letter Curreny Code
+Three letter curreny code
 
 Most definitely EUR for most accounts
+
+## Output Format (korAccount)
+
+Prefers to have a header line
+Field separator: ;
+
+Possible fields (header names)
+-Datum
+-Empfänger/Auftraggeber
+-Zweck
+-Betrag
+-Wertstellung
+-Fahrzeug Stand
+-Fahrzeug Menge
+-Fahrzeug Preis
+-Kategorie
+-Fahrzeug
+-Ausgabe
+-Einnahme
+-Bemerkungen
+-Belegnummer
