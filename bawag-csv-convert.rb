@@ -12,11 +12,19 @@ bank_input = CSV.read("#{basefile}.csv", {:col_sep=>";", :headers=>false, :encod
 # Convert Date
 # Output Zweck;Datum;Betrag
 
-#row = bank_input.first
-bank_input.each do |row|
-  # print "-" + row[3] +"-\n"
-   date = Date.strptime(row[3], '%d.%m.%Y')
-   print date.strftime('%Y-%m-%d') +  ";" + row[1] + ";" + row[4] + "\n"
+CSV.open("#{basefile}.kor.csv", "wb", {:col_sep=>";", :headers=>true, :encoding=>"ISO-8859-1:UTF-8"}) do |csvout|
+#     csv << ["row", "of", "CSV", "data"]
+#     csv << ["another", "row"]
+#     # ...
+#   end
+  csvout << ["Datum", "Zweck", "Betrag", "Wertstellung", "Belegnummer"]
+  row = bank_input.first
+  # bank_input.each do |row|
+    # print "-" + row[3] +"-\n"
+     date = Date.strptime(row[2], '%d.%m.%Y').strftime('%Y-%m-%d')
+     valuta = Date.strptime(row[3], '%d.%m.%Y').strftime('%Y-%m-%d')
+     csvout << [date , row[1] , row[4], valuta ]
+  #end
 end
 
 # Qif::Writer.open("#{basefile}.qif", type = 'Bank', format = 'dd.mm.yyyy') do |qif|
