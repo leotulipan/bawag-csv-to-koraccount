@@ -18,12 +18,23 @@ CSV.open("#{basefile}.kor.csv", "wb", {:col_sep=>";", :headers=>true, :encoding=
   csvout << ["Datum", "Zweck", "Betrag", "Wertstellung", "Belegnummer"]
   #row = bank_input.first
    bank_input.each do |row|
+     # Standard case
      if banking_codes.include? row[1][45,2]
       count = row[1][48,9]
+
+     # ;BG/000009999 Entgelt für Kontoführung    ;
      elsif banking_codes.include? row[1][0,2]
       count = row[1][3,9]
+
+      #;uchungen      BG/000001195 Entgelt für händ. bearbeitete Buchungen            1 Stk.    ;
+      #find anywhere  
       else
-        count = ""
+        extracted_string = row[1][/\s([A-Z][A-Z])\/\d\d\d\d\d\d\d\d\d/][1,12]
+        if banking_codes.include? extracted_string[0,2] 
+          count = extracted_string[3,9]
+        else
+         count =  ""
+        end
      end
 
      date = Date.strptime(row[2], '%d.%m.%Y').strftime('%Y-%m-%d')
