@@ -26,7 +26,7 @@ Probably always without leading Zeros (if you can confirm this, open an issue on
 ### Description 
 
 Variable Length
-- First 45 Characters are fixed 
+**First 45 Characters are fixed**
 	"Bezahlung Maestro              13.57         "
 	"Auszahlung Maestro             09.13         " 
 	"Abbuchung Einzugsermächtigung                "
@@ -35,7 +35,19 @@ Variable Length
 	"Abbuchung Lastschrift                        "
 	"Gutschrift Überweisung                       "
 	EXCEPTION this line is complete: "BG/000001438 Entgelt für Kontoführung    " no leading 45chars
-- Next 12 Charactes: 2 Letters Banking Code + running number
+**Next 12 Charactes: 2 Letters Banking Code + running number**
+
+All Banking codes encountered so far
+
+AT
+BG
+FE
+IG
+MC
+OG
+VB
+VD
+
 -- MC/000001463
 -- VD/000001462     
 --- Running# is a unique number!
