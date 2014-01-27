@@ -15,7 +15,7 @@ bank_input = CSV.read("#{basefile}.csv", {:col_sep=>";", :headers=>false, :encod
 # Output "Datum", "Zweck", "Betrag", "Wertstellung", "Belegnummer"
 
 CSV.open("#{basefile}.kor.csv", "wb", {:col_sep=>";", :headers=>true, :encoding=>"ISO-8859-1:UTF-8"}) do |csvout|
-  csvout << ["Datum", "Zweck", "Betrag", "Wertstellung", "Belegnummer"]
+  csvout << ["Belegnummer", "Datum", "Zweck", "Betrag", "Wertstellung"]
   #row = bank_input.first
    bank_input.each do |row|
      # Standard case
@@ -39,7 +39,7 @@ CSV.open("#{basefile}.kor.csv", "wb", {:col_sep=>";", :headers=>true, :encoding=
 
      date = Date.strptime(row[2], '%d.%m.%Y').strftime('%Y-%m-%d')
      valuta = Date.strptime(row[3], '%d.%m.%Y').strftime('%Y-%m-%d')
-     csvout << [date , row[1] , row[4], valuta, count ]
+     csvout << [count, date , row[1] , row[4].gsub(/\./,""), valuta]
   end
 end
 
