@@ -18,6 +18,5 @@ Given(/^I pass "(.*?)" to the importer$/) do |filename|
 end
 
 Then(/^the importer should return (.*?)$/) do |returnvalue|
-	@return = @bawag.import
-  @return.should == returnvalue.to_bool
+  @bawag.import.should == returnvalue.to_bool
 end

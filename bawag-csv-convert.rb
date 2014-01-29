@@ -5,10 +5,13 @@ require 'csv'
 require 'date'
 #http://ruby-doc.org/stdlib-1.9.3/libdoc/date/rdoc/Date.html
 
+#http://www.ruby-doc.org/core-1.9.3/FileTest.html
+
 class BawagConvert
 
   def initialize(filename)
-    banking_codes = [ "AT", "BG", "FE", "IG", "MC", "OG", "VB", "VD"]
+    @banking_codes = [ "AT", "BG", "FE", "IG", "MC", "OG", "VB", "VD"]
+    @import_file = filename
   end
 
   def import
@@ -16,9 +19,9 @@ class BawagConvert
     # input_file = CSV.read("#{basefile}.csv", {:col_sep=>";", 
     #                                           :headers=>false, 
     #                                           :encoding=>"ISO-8859-1:UTF-8"}) 
-    return false
+    File.readable?(@import_file)
   end
-  
+
   def save
     # Read CSV
     # Convert Date, Valuedate
