@@ -106,3 +106,11 @@ Possible fields (header names)
 -Einnahme
 -Bemerkungen
 -Belegnummer
+
+## Testing
+```
+$gem install cucumber
+$gem install rspec
+(do this once)
+$cucumber
+```
