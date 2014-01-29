@@ -1,2 +1,2 @@
 # encoding: utf-8
-require Dir.getwd() + '/bawag-csv-convert'
+require 'bawag-csv-convert'
