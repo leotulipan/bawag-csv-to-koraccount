@@ -1,5 +1,6 @@
+# encoding: utf-8
 Given(/^I pass "(.*?)" to the importer$/) do |filename|
-  bawag = BAWAG_convert.new(filename)
+  bawag = BawagConvert.new(filename)
 end
 
 Then(/^the result should be "(.*?)"$/) do |arg1|
