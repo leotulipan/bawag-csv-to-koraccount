@@ -5,5 +5,5 @@ Feature: Importing and sanitizing/checking the original file
 
 Scenario: Nonexistant file
 	Given I pass "nonexistant.XXX" to the importer
-	Then the result should be "File not found"
+	Then the importer should return false
  
