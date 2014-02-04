@@ -109,8 +109,10 @@ Possible fields (header names)
 
 ## Testing
 ```
+(do this once)
 $gem install cucumber
 $gem install rspec
-(do this once)
+$gem install fakefs
+(then run)
 $cucumber
 ```

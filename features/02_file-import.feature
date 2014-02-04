@@ -10,3 +10,8 @@ Scenario: Nonexisting file
 Scenario: Existing file	
 	Given I pass "file.csv" to the importer
 	Then the importer should return true 
+
+Scenario: Saving import result	
+	Given I pass "file.csv" to the importer
+	And I save the import result
+	Then the file "file.kor.csv" should be created
