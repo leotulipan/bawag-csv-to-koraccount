@@ -23,6 +23,10 @@ class BawagConvert
   end
 
   def save
+
+    output_file = @import_file.gsub(/\.csv/, ".kor.csv")
+    FileUtils.touch(output_file)
+    File.readable?(output_file)
     # Read CSV
     # Convert Date, Valuedate
     # Extract running Number
